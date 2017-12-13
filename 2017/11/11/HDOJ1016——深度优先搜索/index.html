@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Sat Nov 11 2017 12:14:50 GMT+0800" />
-        <meta property="article:modified_time" content="Sat Nov 11 2017 14:37:56 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Dec 14 2017 00:12:15 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/11/11/HDOJ1016——深度优先搜索/index.html",
     "headline": "HDOJ1016素数环——深度优先搜索",
     "datePublished": "Sat Nov 11 2017 12:14:50 GMT+0800",
-    "dateModified": "Sat Nov 11 2017 14:37:56 GMT+0800",
+    "dateModified": "Thu Dec 14 2017 00:12:15 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Mogician_Jeff",
@@ -507,98 +507,97 @@
 <p>定义两个数组，一个为a[n]，另一个为save[n]，分别用于记录数字的使用情况和当前路径。  </p>
 <p>一个函数scan，用来检测所有数是否都被用到。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">scan</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> n)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(*(a+i) == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>一个函数prime，用来检测两数相加是否为素数。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">prime</span><span class="params">(<span class="keyword">int</span> location,<span class="keyword">int</span> next)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> sum = location + next;</div><div class="line">    <span class="keyword">if</span> (sum==<span class="number">3</span>||sum==<span class="number">5</span>||sum==<span class="number">7</span>||sum==<span class="number">11</span>||sum==<span class="number">13</span>||sum==<span class="number">17</span>||sum==<span class="number">19</span>||sum==<span class="number">23</span>||sum==<span class="number">29</span>||sum==<span class="number">31</span>||sum==<span class="number">37</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>一个函数prime，用来检测两数相加是否为素数。<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> prime(<span class="keyword">int</span> location,<span class="keyword">int</span> next)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> <span class="keyword">sum</span> = location + next;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">sum</span>==<span class="number">3</span>||<span class="keyword">sum</span>==<span class="number">5</span>||<span class="keyword">sum</span>==<span class="number">7</span>||<span class="keyword">sum</span>==<span class="number">11</span>||<span class="keyword">sum</span>==<span class="number">13</span>||<span class="keyword">sum</span>==<span class="number">17</span>||<span class="keyword">sum</span>==<span class="number">19</span>||<span class="keyword">sum</span>==<span class="number">23</span>||<span class="keyword">sum</span>==<span class="number">29</span>||<span class="keyword">sum</span>==<span class="number">31</span>||<span class="keyword">sum</span>==<span class="number">37</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>定义一个location，记录当前位置的数组下标<br>DFS实现的过程是：程序从1开始遍历，如果当前位置的值(location+1)和下一位置的值(i+1)的和为素数，且下一位置的值未被标记，就调用下去。如果遍历完后，达不到成立的条件，则回溯到上一层，继续遍历。</p>
 <p>完整代码</p>
-<pre><code class="cpp"><span class="comment">/*HDOJ1016 素数环问题 DFS深度优先搜索训练*/</span>
-<span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span>
-<span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span>
+<pre><code>/*HDOJ1016 素数环问题 DFS深度优先搜索训练*/
+#include&lt;stdio.h&gt;
+#include&lt;malloc.h&gt;
 
-<span class="keyword">int</span> count; <span class="comment">//记录save数组当前位置</span>
-<span class="keyword">int</span> Case = <span class="number">1</span>;
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>
-<span class="function"></span>{
-    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> *,<span class="keyword">int</span> *,<span class="keyword">int</span>,<span class="keyword">int</span>)</span></span>;
-    <span class="keyword">int</span> n,i;
-    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n) != EOF )
+int count; //记录save数组当前位置
+int Case = 1;
+int main()
+{
+    void dfs(int *,int *,int,int);
+    int n,i;
+    while(scanf(&quot;%d&quot;,&amp;n) != EOF )
     {
-        <span class="keyword">if</span>(n == <span class="number">1</span>)  <span class="comment">//若n为特殊情况，直接打表输出</span>
+        if(n == 1)  //若n为特殊情况，直接打表输出
         {
-            <span class="built_in">printf</span>(<span class="string">"Case %d:\n1\n\n"</span>,Case);
+            printf(&quot;Case %d:\n1\n\n&quot;,Case);
             Case++;
-            <span class="keyword">continue</span>;
+            continue;
         }
-        <span class="keyword">int</span> *a=(<span class="keyword">int</span> *)<span class="built_in">malloc</span>(n*<span class="keyword">sizeof</span>(<span class="keyword">int</span>)); <span class="comment">//定义动态数组 相当于int a[n]</span>
-        <span class="keyword">int</span> *save=(<span class="keyword">int</span> *)<span class="built_in">malloc</span>(n*<span class="keyword">sizeof</span>(<span class="keyword">int</span>));  <span class="comment">//定义save数组，记录路径</span>
-        count = <span class="number">0</span>;  <span class="comment">//save数组位置初始化</span>
-        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)
+        int *a=(int *)malloc(n*sizeof(int)); //定义动态数组 相当于int a[n]
+        int *save=(int *)malloc(n*sizeof(int));  //定义save数组，记录路径
+        count = 0;  //save数组位置初始化
+        for(i=0;i&lt;n;i++)
         {
-            <span class="keyword">if</span>(i==<span class="number">0</span>) *a = <span class="number">1</span>;
-            <span class="keyword">else</span> *(a+i) = <span class="number">0</span>;
+            if(i==0) *a = 1;
+            else *(a+i) = 0;
         }
-        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)  <span class="comment">//初始化save数组，用于输出路径</span>
+        for(i=0;i&lt;n;i++)  //初始化save数组，用于输出路径
         {
-            <span class="keyword">if</span>(i==<span class="number">0</span>) *save = <span class="number">1</span>; <span class="comment">//路径的开头必为1</span>
-            <span class="keyword">else</span> *(save+i) = <span class="number">0</span>;
+            if(i==0) *save = 1; //路径的开头必为1
+            else *(save+i) = 0;
         }
-        <span class="built_in">printf</span>(<span class="string">"Case %d:\n"</span>,Case);
+        printf(&quot;Case %d:\n&quot;,Case);
         Case++;
-        dfs(a,save,<span class="number">0</span>,n);
-        <span class="built_in">printf</span>(<span class="string">"\n"</span>);
+        dfs(a,save,0,n);
+        printf(&quot;\n&quot;);
     }
 }
 
-<span class="comment">/*检测当前位置和下一位置的和是否为素数*/</span>
-<span class="function"><span class="keyword">int</span> <span class="title">prime</span><span class="params">(<span class="keyword">int</span> location,<span class="keyword">int</span> next)</span></span>
-<span class="function"></span>{
-    <span class="keyword">int</span> sum = location + next;
-    <span class="keyword">if</span> (sum==<span class="number">3</span>||sum==<span class="number">5</span>||sum==<span class="number">7</span>||sum==<span class="number">11</span>||sum==<span class="number">13</span>||sum==<span class="number">17</span>||sum==<span class="number">19</span>||sum==<span class="number">23</span>||sum==<span class="number">29</span>||sum==<span class="number">31</span>||sum==<span class="number">37</span>)
-        <span class="keyword">return</span> <span class="number">1</span>;
-    <span class="keyword">else</span>
-        <span class="keyword">return</span> <span class="number">0</span>;
+/*检测当前位置和下一位置的和是否为素数*/
+int prime(int location,int next)
+{
+    int sum = location + next;
+    if (sum==3||sum==5||sum==7||sum==11||sum==13||sum==17||sum==19||sum==23||sum==29||sum==31||sum==37)
+        return 1;
+    else
+        return 0;
 }
 
-<span class="comment">/*检测是否填满n个数字*/</span>
-<span class="function"><span class="keyword">int</span> <span class="title">scan</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> n)</span></span>
-<span class="function"></span>{
-    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)
+/*检测是否填满n个数字*/
+int scan(int *a,int n)
+{
+    for(int i=0; i&lt;n; i++)
     {
-        <span class="keyword">if</span>(*(a+i) == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;
+        if(*(a+i) == 0) return 0;
     }
-    <span class="keyword">return</span> <span class="number">1</span>;
+    return 1;
 }
 
-<span class="comment">/*深度优先搜索，遍历每一种情况*/</span>
-<span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> *save, <span class="keyword">int</span> location,<span class="keyword">int</span> n)</span></span>
-<span class="function"></span>{
-    <span class="keyword">if</span>(scan(a,n) == <span class="number">1</span> &amp;&amp; prime(location+<span class="number">1</span>,<span class="number">1</span>)) <span class="comment">//如果n个数填满，且头和尾相加为素数，则达成目标</span>
+/*深度优先搜索，遍历每一种情况*/
+void dfs(int *a, int *save, int location,int n)
+{
+    if(scan(a,n) == 1 &amp;&amp; prime(location+1,1)) //如果n个数填满，且头和尾相加为素数，则达成目标
     {
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)
+        for(int i=0;i&lt;n-1;i++)
         {
-            <span class="built_in">printf</span>(<span class="string">"%d "</span>,*(save+i)); <span class="comment">//打印路径</span>
+            printf(&quot;%d &quot;,*(save+i)); //打印路径
         }
-        <span class="built_in">printf</span>(<span class="string">"%d"</span>,*(save+n<span class="number">-1</span>));  <span class="comment">//控制格式，末尾无空格</span>
-        <span class="built_in">printf</span>(<span class="string">"\n"</span>);
-        <span class="keyword">return</span>;
+        printf(&quot;%d&quot;,*(save+n-1));  //控制格式，末尾无空格
+        printf(&quot;\n&quot;);
+        return;
     }
-    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i &lt;n; i++)
+    for(int i=1;i &lt;n; i++)
     {
-        <span class="keyword">if</span>(*(a+i) != <span class="number">1</span> &amp;&amp; prime(location+<span class="number">1</span>,i+<span class="number">1</span>)) <span class="comment">//如果下一位置未标记，且相加为素数</span>
+        if(*(a+i) != 1 &amp;&amp; prime(location+1,i+1)) //如果下一位置未标记，且相加为素数
         {
-            count++;  <span class="comment">//save数组位置后移</span>
-            *(a+i) = <span class="number">1</span>;  <span class="comment">//标记下一位置</span>
-            *(save+count) = i+<span class="number">1</span>;  <span class="comment">//save数组赋值</span>
-            dfs(a,save,i,n);  <span class="comment">//调用下一位置的dfs</span>
-            *(a+i) = <span class="number">0</span>;   <span class="comment">//如果dfs无结果，则回溯到上一位置，且重置标记</span>
-            *(save+count) = <span class="number">0</span>;  <span class="comment">//回溯，重置save数组</span>
-            count --;  <span class="comment">//save数组前移</span>
+            count++;  //save数组位置后移
+            *(a+i) = 1;  //标记下一位置
+            *(save+count) = i+1;  //save数组赋值
+            dfs(a,save,i,n);  //调用下一位置的dfs
+            *(a+i) = 0;   //如果dfs无结果，则回溯到上一位置，且重置标记
+            *(save+count) = 0;  //回溯，重置save数组
+            count --;  //save数组前移
         }
 
     }
 
 }
 </code></pre>
-
         
     
 
@@ -754,7 +753,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/11/">November 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">October 2017<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/12/">December 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">November 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">October 2017<span class="sidebar_archives-count">3</span></a>
             </ul>
         </li>
         
