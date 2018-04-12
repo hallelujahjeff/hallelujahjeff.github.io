@@ -37,8 +37,6 @@
     
     <title>
         
-            HDOJ1016素数环——深度优先搜索 | 
-        
         隙间
     </title>
 
@@ -49,7 +47,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Mogician_Jeff">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",C">
+    <meta name="keywords" content="">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -97,6 +95,11 @@
         <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
         
 
     
@@ -231,18 +234,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="HDOJ1016素数环——深度优先搜索 | 隙间">
+    <meta property="og:title" content="隙间">
     <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="C"> 
+    
 
     
         <meta property="article:published_time" content="Sat Nov 11 2017 12:14:50 GMT+0800" />
-        <meta property="article:modified_time" content="Thu Dec 14 2017 00:12:15 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Dec 14 2017 00:51:52 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="HDOJ1016素数环——深度优先搜索 | 隙间">
+    <meta name="twitter:title" content="隙间">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -263,9 +266,9 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "mainEntityOfPage": "http://yoursite.com/2017/11/11/HDOJ1016——深度优先搜索/index.html",
-    "headline": "HDOJ1016素数环——深度优先搜索",
+    "headline": "",
     "datePublished": "Sat Nov 11 2017 12:14:50 GMT+0800",
-    "dateModified": "Thu Dec 14 2017 00:12:15 GMT+0800",
+    "dateModified": "Thu Dec 14 2017 00:51:52 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Mogician_Jeff",
@@ -283,7 +286,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",C",
+    "keywords": "",
     "description": "",
 }
 </script>
@@ -343,15 +346,6 @@
     <!-- Left aligned menu below button -->
     
     
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HDOJ1016素数环——深度优先搜索初探"><span class="post-toc-number">1.</span> <span class="post-toc-text">HDOJ1016素数环——深度优先搜索初探</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题描述"><span class="post-toc-number">2.</span> <span class="post-toc-text">问题描述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#input"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">input</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#output"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">output</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分析"><span class="post-toc-number">3.</span> <span class="post-toc-text">分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现"><span class="post-toc-number">4.</span> <span class="post-toc-text">实现</span></a></li></ol>
-    </ul>
-    
 
 
 
@@ -368,11 +362,20 @@
                 
     <!-- Paradox Post Header -->
     
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/images/HDOJ1016.jpg)">
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
     
             <p class="article-headline-p">
-                HDOJ1016素数环——深度优先搜索
+                
             </p>
         </div>
 
@@ -409,15 +412,6 @@
 
     <!-- Tags (bookmark) -->
     
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/C/">C</a>
-    </ul>
-    
 
     <!-- Share -->
     <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
@@ -431,7 +425,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=HDOJ1016素数环——深度优先搜索&url=http://yoursite.com/2017/11/11/HDOJ1016——深度优先搜索/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://yoursite.com/2017/11/11/HDOJ1016——深度优先搜索/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -440,7 +434,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=HDOJ1016素数环——深度优先搜索&url=http://yoursite.com/2017/11/11/HDOJ1016——深度优先搜索/index.html&via=Mogician_Jeff" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=&url=http://yoursite.com/2017/11/11/HDOJ1016——深度优先搜索/index.html&via=Mogician_Jeff" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -482,122 +476,9 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="HDOJ1016素数环——深度优先搜索初探"><a href="#HDOJ1016素数环——深度优先搜索初探" class="headerlink" title="HDOJ1016素数环——深度优先搜索初探"></a>HDOJ1016素数环——深度优先搜索初探</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1016" target="_blank" rel="external">HDOJ1016</a><br><img src="/2017/11/11/HDOJ1016——深度优先搜索/01.png" alt="01.png" title=""></p>
-<ul>
-<li><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2></li>
-</ul>
-<p>&nbsp;&nbsp;A ring is compose of n circles as shown in diagram.Put natural number 1, 2, …, n into each circleseparately, and the sum of numbers in two adjacent circles should be a prime.Note: the number of first circle should always be 1.</p>
-<img src="/2017/11/11/HDOJ1016——深度优先搜索/02.gif" alt="02.gif" title="">
-<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><p><code>n (0 &lt; n &lt; 20)</code></p>
-<h3 id="output"><a href="#output" class="headerlink" title="output"></a>output</h3><figure class="highlight tap"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Case 1:</div><div class="line">1<span class="number"> 4 </span>3<span class="number"> 2 </span>5 6</div><div class="line">1<span class="number"> 6 </span>5<span class="number"> 2 </span>3 4</div><div class="line"></div><div class="line">Case 2:</div><div class="line">1<span class="number"> 2 </span>3<span class="number"> 8 </span>5<span class="number"> 6 </span>7 4</div><div class="line">1<span class="number"> 2 </span>5<span class="number"> 8 </span>3<span class="number"> 4 </span>7 6</div><div class="line">1<span class="number"> 4 </span>7<span class="number"> 6 </span>5<span class="number"> 8 </span>3 2</div><div class="line">1<span class="number"> 6 </span>7<span class="number"> 4 </span>3<span class="number"> 8 </span>5 2</div></pre></td></tr></table></figure>
-<ul>
-<li><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2></li>
-</ul>
-<p>&emsp;&emsp;看了下Discuss板块，了解到这道题应该用DFS(深度优先搜索)的算法思想来做，首先去知乎了解了一下<br><a href="https://zhuanlan.zhihu.com/p/24986203" target="_blank" rel="external">搜索思想——DFS &amp; BFS（基础基础篇）</a>  </p>
-<p>&emsp;&emsp;深度优先搜索的步骤分为 1.递归下去 2.回溯上来。顾名思义，深度优先，则是以深度为准则，先一条路走到底，直到达到目标。这里称之为递归下去。<br>&emsp;&emsp;否则既没有达到目标又无路可走了，那么则退回到上一步的状态，走其他路。这便是回溯上来。</p>
-<ul>
-<li><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2></li>
-</ul>
-<p>经过两天半的努力，把素数环的代码刚出来了，主要还是这个DFS的实现吧。<br>首先，判断成立的条件有  </p>
-<ol>
-<li>n个数全部用到</li>
-<li>每两个数之间的和为素数</li>
-<li>首位的和也为素数  </li>
-</ol>
-<p>定义两个数组，一个为a[n]，另一个为save[n]，分别用于记录数字的使用情况和当前路径。  </p>
-<p>一个函数scan，用来检测所有数是否都被用到。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">scan</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> n)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(*(a+i) == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>一个函数prime，用来检测两数相加是否为素数。<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> prime(<span class="keyword">int</span> location,<span class="keyword">int</span> next)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> <span class="keyword">sum</span> = location + next;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">sum</span>==<span class="number">3</span>||<span class="keyword">sum</span>==<span class="number">5</span>||<span class="keyword">sum</span>==<span class="number">7</span>||<span class="keyword">sum</span>==<span class="number">11</span>||<span class="keyword">sum</span>==<span class="number">13</span>||<span class="keyword">sum</span>==<span class="number">17</span>||<span class="keyword">sum</span>==<span class="number">19</span>||<span class="keyword">sum</span>==<span class="number">23</span>||<span class="keyword">sum</span>==<span class="number">29</span>||<span class="keyword">sum</span>==<span class="number">31</span>||<span class="keyword">sum</span>==<span class="number">37</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>定义一个location，记录当前位置的数组下标<br>DFS实现的过程是：程序从1开始遍历，如果当前位置的值(location+1)和下一位置的值(i+1)的和为素数，且下一位置的值未被标记，就调用下去。如果遍历完后，达不到成立的条件，则回溯到上一层，继续遍历。</p>
-<p>完整代码</p>
-<pre><code>/*HDOJ1016 素数环问题 DFS深度优先搜索训练*/
-#include&lt;stdio.h&gt;
-#include&lt;malloc.h&gt;
+        <hr>
+<p>title: HDOJ1016素数环——深度优先搜�</p>
 
-int count; //记录save数组当前位置
-int Case = 1;
-int main()
-{
-    void dfs(int *,int *,int,int);
-    int n,i;
-    while(scanf(&quot;%d&quot;,&amp;n) != EOF )
-    {
-        if(n == 1)  //若n为特殊情况，直接打表输出
-        {
-            printf(&quot;Case %d:\n1\n\n&quot;,Case);
-            Case++;
-            continue;
-        }
-        int *a=(int *)malloc(n*sizeof(int)); //定义动态数组 相当于int a[n]
-        int *save=(int *)malloc(n*sizeof(int));  //定义save数组，记录路径
-        count = 0;  //save数组位置初始化
-        for(i=0;i&lt;n;i++)
-        {
-            if(i==0) *a = 1;
-            else *(a+i) = 0;
-        }
-        for(i=0;i&lt;n;i++)  //初始化save数组，用于输出路径
-        {
-            if(i==0) *save = 1; //路径的开头必为1
-            else *(save+i) = 0;
-        }
-        printf(&quot;Case %d:\n&quot;,Case);
-        Case++;
-        dfs(a,save,0,n);
-        printf(&quot;\n&quot;);
-    }
-}
-
-/*检测当前位置和下一位置的和是否为素数*/
-int prime(int location,int next)
-{
-    int sum = location + next;
-    if (sum==3||sum==5||sum==7||sum==11||sum==13||sum==17||sum==19||sum==23||sum==29||sum==31||sum==37)
-        return 1;
-    else
-        return 0;
-}
-
-/*检测是否填满n个数字*/
-int scan(int *a,int n)
-{
-    for(int i=0; i&lt;n; i++)
-    {
-        if(*(a+i) == 0) return 0;
-    }
-    return 1;
-}
-
-/*深度优先搜索，遍历每一种情况*/
-void dfs(int *a, int *save, int location,int n)
-{
-    if(scan(a,n) == 1 &amp;&amp; prime(location+1,1)) //如果n个数填满，且头和尾相加为素数，则达成目标
-    {
-        for(int i=0;i&lt;n-1;i++)
-        {
-            printf(&quot;%d &quot;,*(save+i)); //打印路径
-        }
-        printf(&quot;%d&quot;,*(save+n-1));  //控制格式，末尾无空格
-        printf(&quot;\n&quot;);
-        return;
-    }
-    for(int i=1;i &lt;n; i++)
-    {
-        if(*(a+i) != 1 &amp;&amp; prime(location+1,i+1)) //如果下一位置未标记，且相加为素数
-        {
-            count++;  //save数组位置后移
-            *(a+i) = 1;  //标记下一位置
-            *(save+count) = i+1;  //save数组赋值
-            dfs(a,save,i,n);  //调用下一位置的dfs
-            *(a+i) = 0;   //如果dfs无结果，则回溯到上一位置，且重置标记
-            *(save+count) = 0;  //回溯，重置save数组
-            count --;  //save数组前移
-        }
-
-    }
-
-}
-</code></pre>
         
     
 
@@ -753,7 +634,7 @@ void dfs(int *a, int *save, int location,int n)
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/12/">December 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">November 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">October 2017<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/12/">December 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">November 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">October 2017<span class="sidebar_archives-count">2</span></a>
             </ul>
         </li>
         
@@ -974,6 +855,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -984,6 +871,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
