@@ -21,6 +21,8 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
 
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
+
 
     <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
 
@@ -562,30 +564,17 @@ int main()
                 <!-- Post Comments -->
                 
                     
-    <!-- 使用 gitcoment -->
-<div id="gitment-comment">
-    <!-- Gitment 评论框 -->
-<div id="container"></div>
-</div>
-<style>
-    #gitment-comment{
-        background-color: #eee;
-        padding: 2pc;
-    }
-</style>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <div id="comment" class="comment"></div>
 <script>
-    var gitment = new Gitment({
-        //id: '页面 ID', // 可选。默认为 location.href
-        owner: 'hallelujahjeff',
-        repo: 'Store',
-        oauth: {
-            client_id: '19837ecd84a58aedb2cd',
-            client_secret: '96c485799875e689a82fcbb0a11fbfda9b53a67f',
-        },
-    })
-    gitment.render('container')
+    window.onload = function() {
+        new Valine({
+            av: AV, // source from av-min.js
+            el: '.comment',
+            app_id: "kEcKvAWHQIGpPYo7wYBIg0VD-gzGzoHsz",
+            app_key: "RHNmODu3UwLRE4wt8EqSjJA7",
+            placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+        });
+    }
 </script>
 
                 
@@ -609,7 +598,7 @@ int main()
 
     <!-- Next Nav -->
     
-        <a href="/2018/04/12/12/" id="post_nav-older" class="next-content">
+        <a href="/2018/04/12/3/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -930,7 +919,19 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
-   <!-- Gitment -->
+   <head>
+    ...
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    ...
+</head>
+<body>
+    ...
+    <div id="comment"></div>
+</body>
+<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- <script src="//cdn.jsdelivr.net/npm/valine@1.1.1/dist/Valine.min.js"></script> -->
+
 
 
 
