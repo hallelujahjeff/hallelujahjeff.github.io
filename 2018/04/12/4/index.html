@@ -22,6 +22,8 @@
 
 
 
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
 
 
 
@@ -178,13 +180,8 @@
 <!-- Theme Background Related-->
 
     <style>
-      body {
-        background-color: ;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
-        background-color: #fff;
+      body{
+        background-image: url(/img/233.jpg);
       }
     </style>
 
@@ -238,7 +235,7 @@
 
     
         <meta property="article:published_time" content="Thu Apr 12 2018 19:45:39 GMT+0800" />
-        <meta property="article:modified_time" content="Thu Apr 12 2018 22:00:17 GMT+0800" />
+        <meta property="article:modified_time" content="Fri Apr 13 2018 19:26:24 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +262,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/04/12/4/index.html",
     "headline": "简单博弈",
     "datePublished": "Thu Apr 12 2018 19:45:39 GMT+0800",
-    "dateModified": "Thu Apr 12 2018 22:00:17 GMT+0800",
+    "dateModified": "Fri Apr 13 2018 19:26:24 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Mogician_Jeff",
@@ -428,6 +425,17 @@
     
 
     
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
 
     <!-- Share Weibo -->
     
@@ -513,10 +521,12 @@
 <li>(14,35,46) ???</li>
 </ul>
 <p>显然，通过枚举的方式判断每个情况的必胜属性是不可取的。下面引入Nim和的概念。</p>
-<h4 id="Nim-Sum"><a href="#Nim-Sum" class="headerlink" title="Nim-Sum"></a>Nim-Sum</h4><p>定义:<br>假设 $(x_m · · · x_0)_2$ 和$(y_m · · · y_0)_2$ 的nim-sum是$(z_m · · · z_0)_2$,则我们表示成 $(x_m · · · x_0)_2 ⊕ (y_m · · · y_0)_2 = (z_m · · · z_0)_2$, 这里，$z_k = x_k + y_k (mod 2)（k=0…m)$.<br><img src="./1515335921203.png" alt="Alt text"><br>对于Nim游戏的某个位置$(x_1,x_2,x_3)$,当且仅当它各个部分的nim-sum等于0时,(即$x_1⊕x_2⊕x_3$),则当前位置位于必败点。这个方法适用于n堆的情况。</p>
+<h4 id="Nim-Sum"><a href="#Nim-Sum" class="headerlink" title="Nim-Sum"></a>Nim-Sum</h4><p>定义:<br>假设 $(x_m · · · x_0)_2$ 和$(y_m · · · y_0)_2$ 的nim-sum是$(z_m · · · z_0)_2$,则我们表示成 $(x_m · · · x_0)_2 ⊕ (y_m · · · y_0)_2 = (z_m · · · z_0)_2$, 这里，$z_k = x_k + y_k (mod 2)（k=0…m)$.</p>
+<p>对于Nim游戏的某个位置$(x_1,x_2,x_3)$,当且仅当它各个部分的nim-sum等于0时,(即$x_1⊕x_2⊕x_3$),则当前位置位于必败点。这个方法适用于n堆的情况。</p>
 <h4 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h4><hr>
 <p><strong>思考(1):有了定理一，如何判断某个游戏的先手是输还是赢？</strong><br>判断先手状态的nim和是否为0即可。如果非0，则必定可以通过一种或多种方法使nim和变为0。</p>
-<p><strong>思考(2):对于必胜点，如何判断有几种可行的操作方案？</strong><br><img src="./1515336252874.png" alt="Alt text"><br>如上，只需要判断每一堆最高位1的数量即可。</p>
+<p><strong>思考(2):对于必胜点，如何判断有几种可行的操作方案？</strong></p>
+<p>如上，只需要判断每一堆最高位1的数量即可。</p>
 <h4 id="题目参考-1"><a href="#题目参考-1" class="headerlink" title="题目参考"></a>题目参考</h4><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1850" target="_blank" rel="external">HDOJ1850</a></p>
 <hr>
 <h3 id="SG函数"><a href="#SG函数" class="headerlink" title="SG函数"></a>SG函数</h3><h4 id="Sprague-Grundy定理-SG定理"><a href="#Sprague-Grundy定理-SG定理" class="headerlink" title="Sprague-Grundy定理(SG定理)"></a>Sprague-Grundy定理(SG定理)</h4><p>游戏和的SG函数等于各个游戏SG函数的Nim和。这样就可以将每一个子游戏分而治之，从而简化了问题。而Bouton定理就是Sprague-Grundy定理在Nim游戏中的直接应用，因为单堆的Nim游戏 SG函数满足 SG(x) = x。</p>
@@ -633,7 +643,7 @@ int main()
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2018/04/12/10/" id="post_nav-newer" class="prev-content">
+        <a href="/2018/04/12/11/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -647,7 +657,7 @@ int main()
 
     <!-- Next Nav -->
     
-        <a href="/2018/04/12/6/" id="post_nav-older" class="next-content">
+        <a href="/2018/04/12/5/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -673,7 +683,7 @@ int main()
 <aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
     <div id="sidebar-main">
         <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.jpg);">
     <!-- Top bar -->
     <div class="top-bar"></div>
 
@@ -750,6 +760,21 @@ int main()
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Codeforces/">Codeforces<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/HDOJ/">HDOJ<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/PAT/">PAT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/STL/">STL<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/ZOJ/">ZOJ<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/基础/">基础<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/日记/">日记<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/比赛/">比赛<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/">算法<span class="sidebar_archives-count">24</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/BFS-DFS/">BFS/DFS<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/动态规划/">动态规划<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/博弈论/">博弈论<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/图论/">图论<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数据结构/">数据结构<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数据结构/图/">图<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数据结构/树/">树<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数论/">数论<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/贪心/">贪心<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
     
@@ -776,13 +801,6 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 <!-- Theme Material -->
-
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
 
 
 <!-- Help & Support -->
@@ -955,6 +973,9 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
 
    <!-- Gitment -->
@@ -998,14 +1019,28 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- MathJax Load-->
 
-
-<!-- Bing Background -->
-
-<script type="text/ls-javascript" id="Bing-Background-script">
-    queue.offer(function(){
-        $('body').attr('data-original', 'https://api.i-meto.com/bing?white');
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
     });
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script type="text/javascript" src="/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+<!-- Bing Background -->
 
 
 <script type="text/ls-javascript" id="lazy-load">
