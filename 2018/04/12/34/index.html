@@ -425,6 +425,16 @@
 </button>
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
     
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/04/12/34/" class="leancloud-views_num" data-flag-title="最大团问题——Bron-Kerbosch算法">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
 
     
         
@@ -498,7 +508,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="最大团问题——Bron-Kerbosch算法"><a href="#最大团问题——Bron-Kerbosch算法" class="headerlink" title="最大团问题——Bron-Kerbosch算法"></a>最大团问题——Bron-Kerbosch算法</h2><p>给定无向图G=(V,E)，其中V是非空集合，称为顶点集；E是V中元素构成的无序二元组的集合，称为边集，无向图中的边均是顶点的无序对，无序对常用圆括号“( )”表示。如果U  V，且对任意两个顶点u，v∈U有(u,v)∈E，则称U是G的完全子图。G的完全子图U是G的团。G的最大团是指G的最大完全子图。<br>如果UÍV且对任意u，v∈U有(u,v)不属于E，则称U是G的空子图。G的空子图U是G的独立集当且仅当U不包含在G的更大的空子图中。G的最大独立集是G中所含顶点数最多的独立集。<br>对于任一无向图G=(V,E)，其补图G’=(V’,E’)定义为：V’=V，且(u,v)∈E’当且仅当(u,v)∉E。<br>如果U是G的完全子图，则它也是G’的空子图，反之亦然。因此，G的团与G’的独立集之间存在一一对应的关系。特殊地，U是G的最大团当且仅当U是G’的最大独立集。<br>通俗点讲就是在一个无向图中找出一个<strong>点数最多的完全图</strong>。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="最大团问题——Bron-Kerbosch算法"><a href="#最大团问题——Bron-Kerbosch算法" class="headerlink" title="最大团问题——Bron-Kerbosch算法"></a>最大团问题——Bron-Kerbosch算法</h2><p>给定无向图G=(V,E)，其中V是非空集合，称为顶点集；E是V中元素构成的无序二元组的集合，称为边集，无向图中的边均是顶点的无序对，无序对常用圆括号“( )”表示。如果U  V，且对任意两个顶点u，v∈U有(u,v)∈E，则称U是G的完全子图。G的完全子图U是G的团。G的最大团是指G的最大完全子图。<br>如果UÍV且对任意u，v∈U有(u,v)不属于E，则称U是G的空子图。G的空子图U是G的独立集当且仅当U不包含在G的更大的空子图中。G的最大独立集是G中所含顶点数最多的独立集。<br>对于任一无向图G=(V,E)，其补图G’=(V’,E’)定义为：V’=V，且(u,v)∈E’当且仅当(u,v)∉E。<br>如果U是G的完全子图，则它也是G’的空子图，反之亦然。因此，G的团与G’的独立集之间存在一一对应的关系。特殊地，U是G的最大团当且仅当U是G’的最大独立集。<br>通俗点讲就是在一个无向图中找出一个<strong>点数最多的完全图</strong>。</p>
 <h3 id="Bron-Kerbosch-算法"><a href="#Bron-Kerbosch-算法" class="headerlink" title="Bron-Kerbosch 算法"></a>Bron-Kerbosch 算法</h3><p>最大独立集： 顶点集V中取 K个顶点，其两两间无连接。</p>
 <p>最大团：　顶点集V中取 K个顶点，其两两间有边连接。</p>
 <p>最大团中顶点数量 = 补图的最大独立集中顶点数量　　</p>
@@ -712,7 +722,7 @@ int main()
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/04/">April 2018<span class="sidebar_archives-count">40</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">December 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">November 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">October 2017<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/04/">April 2018<span class="sidebar_archives-count">40</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">December 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">November 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">October 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">April 2017<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -730,13 +740,23 @@ int main()
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Codeforces/">Codeforces<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/HDOJ/">HDOJ<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/PAT/">PAT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/STL/">STL<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/ZOJ/">ZOJ<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/基础/">基础<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/日记/">日记<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/比赛/">比赛<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/">算法<span class="sidebar_archives-count">24</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/BFS-DFS/">BFS/DFS<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/动态规划/">动态规划<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/博弈论/">博弈论<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/图论/">图论<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数据结构/">数据结构<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数据结构/图/">图<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数据结构/树/">树<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数论/">数论<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/贪心/">贪心<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/categories/Codeforces/">Codeforces<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/HDOJ/">HDOJ<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/PAT/">PAT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/STL/">STL<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/ZOJ/">ZOJ<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/基础/">基础<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/日记/">日记<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/比赛/">比赛<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/">算法<span class="sidebar_archives-count">24</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/BFS-DFS/">BFS/DFS<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/动态规划/">动态规划<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/博弈论/">博弈论<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/图论/">图论<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数据结构/">数据结构<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数据结构/图/">图<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数据结构/树/">树<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数论/">数论<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/贪心/">贪心<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
     
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="/2017/04/13/about/" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
     
 
     <!-- Article Number  -->
@@ -929,6 +949,91 @@ It will not impact the appearance and can give developers a lot of support :)
         <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
     
 
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('6KAk7q0w2DQIkc9wYGl77FzS-gzGzoHsz', 'wXlogJ3yrRmQ1xqC0DPjusYA');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
 
 
 
