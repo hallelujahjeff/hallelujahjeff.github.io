@@ -41,7 +41,7 @@
     
     <title>
         
-            HDOJ4489——国王的沉浮 | 
+            康托展开与逆展开 | 
         
         隙间
     </title>
@@ -53,7 +53,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Mogician_Jeff">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",动态规划,组合排列">
+    <meta name="keywords" content=",组合排列">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -230,18 +230,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="HDOJ4489——国王的沉浮 | 隙间">
+    <meta property="og:title" content="康托展开与逆展开 | 隙间">
     <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="动态规划"> <meta property="og:article:tag" content="组合排列"> 
+    <meta property="og:article:tag" content="组合排列"> 
 
     
-        <meta property="article:published_time" content="Thu Apr 12 2018 22:22:01 GMT+0800" />
-        <meta property="article:modified_time" content="Thu Apr 12 2018 22:36:37 GMT+0800" />
+        <meta property="article:published_time" content="Mon Apr 16 2018 00:15:49 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Apr 16 2018 12:54:12 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="HDOJ4489——国王的沉浮 | 隙间">
+    <meta name="twitter:title" content="康托展开与逆展开 | 隙间">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -249,7 +249,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2018/04/12/32/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/04/16/40/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -261,10 +261,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2018/04/12/32/index.html",
-    "headline": "HDOJ4489——国王的沉浮",
-    "datePublished": "Thu Apr 12 2018 22:22:01 GMT+0800",
-    "dateModified": "Thu Apr 12 2018 22:36:37 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/04/16/40/index.html",
+    "headline": "康托展开与逆展开",
+    "datePublished": "Mon Apr 16 2018 00:15:49 GMT+0800",
+    "dateModified": "Mon Apr 16 2018 12:54:12 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Mogician_Jeff",
@@ -282,7 +282,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",动态规划,组合排列",
+    "keywords": ",组合排列",
     "description": "",
 }
 </script>
@@ -348,7 +348,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HDOJ4489——国王的沉浮"><span class="post-toc-number">1.</span> <span class="post-toc-text">HDOJ4489——国王的沉浮</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#问题描述"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">问题描述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Input"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Input</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Output"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Output</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Sample-Input"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">Sample Input</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Sample-Output"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Sample Output</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#问题分析"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">问题分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实现"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">代码实现</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#康托展开"><span class="post-toc-number">1.</span> <span class="post-toc-text">康托展开</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#具体实现"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">具体实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结公式"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">总结公式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#X-a-n-n-1-a-n-1-n-2-a-i-i-1-a-2-1-a-1-0"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">X = a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[2]*1!+a[1]*0!</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逆康托展开"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">逆康托展开</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">代码</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -368,10 +368,10 @@
     <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/images/32.jpg)">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/images/40.jpg)">
     
             <p class="article-headline-p">
-                HDOJ4489——国王的沉浮
+                康托展开与逆展开
             </p>
         </div>
 
@@ -390,7 +390,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Mogician_Jeff</strong>
-        <span>Apr 12, 2018</span>
+        <span>Apr 16, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -414,7 +414,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/动态规划/">动态规划</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/组合排列/">组合排列</a>
+        <a class="post_tag-link" href="/tags/组合排列/">组合排列</a>
     </ul>
     
 
@@ -428,7 +428,7 @@
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2018/04/12/32/" class="leancloud-views_num" data-flag-title="HDOJ4489——国王的沉浮">
+                <span id="/2018/04/16/40/" class="leancloud-views_num" data-flag-title="康托展开与逆展开">
      &nbsp;浏览量
 </span>
 
@@ -451,7 +451,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=HDOJ4489——国王的沉浮&url=http://yoursite.com/2018/04/12/32/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=康托展开与逆展开&url=http://yoursite.com/2018/04/16/40/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -460,7 +460,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=HDOJ4489——国王的沉浮&url=http://yoursite.com/2018/04/12/32/index.html&via=Mogician_Jeff" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=康托展开与逆展开&url=http://yoursite.com/2018/04/16/40/index.html&via=Mogician_Jeff" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -469,7 +469,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/12/32/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/16/40/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -478,7 +478,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/12/32/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/16/40/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -490,7 +490,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=隙间&title=HDOJ4489——国王的沉浮&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/04/12/32/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=隙间&title=康托展开与逆展开&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/04/16/40/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -508,54 +508,105 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="HDOJ4489——国王的沉浮"><a href="#HDOJ4489——国王的沉浮" class="headerlink" title="HDOJ4489——国王的沉浮"></a>HDOJ4489——国王的沉浮</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4489" target="_blank" rel="external">HDOJ4489</a><br>有n个身高递增的人，使他们高低高低排列，求一共有多少种排法。<br><img src="/2018/04/12/32/1.png" alt="1.png" title=""><br>或者<br><img src="/2018/04/12/32/2.png" alt="2.png" title=""></p>
-<h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><blockquote>
-<p>The first line of input contains a single integer P, (1 &lt;= P &lt;= 1000), which is the number of data sets that follow. Each data set consists of single line of input containing two integers. The first integer, D is the data set number. The second integer, n (1 &lt;= n &lt;= 20), is the number of guards of differing heights.</p>
-</blockquote>
-<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><blockquote>
-<p>For each data set there is one line of output. It contains the data set number (D) followed by a single space, followed by the number of up and down orders for the n guards.</p>
-</blockquote>
-<h4 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h4><blockquote>
-<p>4<br>1 1<br>2 3<br>3 4<br>4 20</p>
-</blockquote>
-<h4 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h4><blockquote>
-<p>1 1<br>2 4<br>3 10<br>4 740742376475050</p>
-</blockquote>
-<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>这道题用组合排序的思想就比较简单，考虑有n个人的队列时，第n个人an一定比前面n-1个人都高。将他插入前n-1个人组成的队列之中，使得新的队列依旧满足题意，那么必须满足: an 的前面为下降的，an 的后面为上升的。如图。<br><img src="/2018/04/12/32/3.png" alt="3.png" title=""><br>设an在n个人的队列中的位置为i，则他左边有i-1个人，他右边有n-i个人。容易推出这个时候所有的排列方法为$\frac{dp[i-1]}{2} <em> \frac{dp[n-i]}{2} </em> C<em>{n-1}^{i-1}$<br>解释一下这个式子:左边i-1个人排出最右边为下降的队列的方法是总方法的一半，右边n-i个人同理，证明略。<br>那么n个人的总排序方法就是$\sum^{n}</em>{i=1} \frac{dp[i-1]}{2} <em> \frac{dp[n-i]}{2} </em> C_{n-1}^{i-1} $</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code class="cpp">#include&lt;cstdio&gt;
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="康托展开"><a href="#康托展开" class="headerlink" title="康托展开"></a>康托展开</h2><hr>
+<p>康托展开是一个全排列到一个自然数的双射，常用于构建hash表时的空间压缩。设有n个数（1，2，3，4,…,n），可以有组成不同(n!种)的排列组合，康托展开表示的就是是当前排列组合在n个不同元素的全排列中的名次。</p>
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><hr>
+<p><strong>对于n个数的全排列，共有n!中排列方式，如何求某一个序列在整个排列中的次序（从小到大）？</strong></p>
+<p>以9的全排列举例：842697513是1-9全排列的第几个？（高中数学排列组合问题，只需要做到不重不漏）</p>
+<ul>
+<li><p>首先看第一位为8，那么第一位为1-7的全排列都比它小，共有7*8！个。</p>
+</li>
+<li><p>在第一位为8的情况下，其次看第二位为4，那么第二位为1-3的全排列都比它小，共有1<em>3</em>7！个。</p>
+</li>
+<li><p>在第一位为8，第二位为4的情况下，那么第三位为1的全排列都比它小，共有1<em>1</em>6！个。</p>
+</li>
+<li><p>在第一位为8，第二位为4，第三位为2的情况下，那么第四位为1-5的全排列都比它小，这里由于第二位4和第三位2已经确定，第四位的可能取值只能为（1,3,5），共有1<em>1</em>1<em>3</em>5！</p>
+</li>
+<li><p>在第一位为8，第二位为4，第三位为2，第四位为6的情况下，那么第五位为1-8的全排列都比它小，这里由于第二位为4，第三位为2，第四位为6已经确定，第五位的可能取值只能为（1,3,5,7），共有1<em>1</em>1<em>1</em>4*4！</p>
+</li>
+</ul>
+<p>……</p>
+<p>对于第i位的可能取值，前i位的数字已经确定，且在全排列中每一个数字只能出现一次，只需要比较i位后面的数字比i位数字小的有几个，即可知道第i位的可能取值。</p>
+<h3 id="总结公式"><a href="#总结公式" class="headerlink" title="总结公式"></a>总结公式</h3><hr>
+<h4 id="X-a-n-n-1-a-n-1-n-2-a-i-i-1-a-2-1-a-1-0"><a href="#X-a-n-n-1-a-n-1-n-2-a-i-i-1-a-2-1-a-1-0" class="headerlink" title="X = a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[2]*1!+a[1]*0!"></a><code>X = a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[2]*1!+a[1]*0!</code></h4><p>其中X表示当前数列在所有全排列数中的是第X小(最小为0)</p>
+<h3 id="逆康托展开"><a href="#逆康托展开" class="headerlink" title="逆康托展开"></a>逆康托展开</h3><hr>
+<p>由于康托展开是双向的，所以我们也可以对一个数进行逆康托展开。其意义是已知某一数列属于这个数列全排列中的第X小，求这个数列是什么。<br>对于数列(1,2,3,4,5),给出其康托展开为61,我们可以反向推出该数列。</p>
+<ul>
+<li><p>用 61 / 4! = 2余13，说明a[5]=2,说明比首位小的数有2个，所以首位为3。</p>
+</li>
+<li><p>用 13 / 3! = 2余1，说明a[4]=2，说明在第二位之后小于第二位的数有2个，所以第二位为4。</p>
+</li>
+<li>用 1 / 2! = 0余1，说明a[3]=0，说明在第三位之后没有小于第三位的数，所以第三位为1。</li>
+<li>用 1 / 1! = 1余0，说明a[2]=1，说明在第二位之后小于第四位的数有1个，所以第四位为5。</li>
+<li>最后一位自然就是剩下的数2啦。<br>通过以上分析，所求排列组合为 34152。</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
 #include&lt;cstring&gt;
-typedef long long LL;
-LL c[21][21];
-LL dp[21];
-void pre()
+#include&lt;string&gt;
+#include&lt;queue&gt;
+#include&lt;vector&gt;
+using namespace std;
+const int N = 9;  //数列长度
+int fac[10] = {0,1,2,6,24,120,720,5040,40320,362880};
+struct Mar
 {
-  int i,j;
-  /*求出C[0][0]到C[20][20]的组合数*/
-  for(i=0;i&lt;=20;i++)  c[0][i] = c[i][i] = 1;
-  for(i=2;i&lt;=20;i++)
-    for(j=1;j&lt;i;j++) c[j][i] = c[j-1][i-1] + c[j][i-1];
-  dp[0] = dp[1] = 1;
-  for(i=2;i&lt;=20;i++)
+  int mat[N];
+};
+int Contor(Mar res)  //康托展开
+{
+  int cnt,ans = 0;
+  for(int i=0;i&lt;N;i++)
   {
-    for(j=1;j&lt;=i;j++)
+    cnt = 0;
+    for(int j=i+1;j&lt;N;j++)
     {
-      dp[i] += c[j-1][i-1] * ((j-1&lt;=1) ? 1 : dp[j-1] / 2) * ((i-j&lt;=1) ? 1 : dp[i-j] / 2);
+      if(res.mat[j] &lt; res.mat[i]) cnt++;
     }
+    ans += cnt * fac[N - i - 1];
   }
+  return ans;
+}
+
+Mar deContor(int res)  //为了紧凑而非常不优雅
+{
+  Mar ans;
+  int i,j,k,pos = 0;
+  bool vis[10];
+  memset(vis,0,sizeof(vis));
+  for(i=N;i&gt;1;i--)  //循环n-1次
+  {
+    k = res / fac[i-1];
+    res = res % fac[i-1];
+    for(j=1;k&gt;=0;j++)
+      if(!vis[j]) k--;
+    ans.mat[pos++] = --j;
+    vis[j] = 1;
+  }
+  for(j=1;vis[j];j++);
+  ans.mat[pos] = j;
+  return ans;
 }
 
 int main()
 {
-  int i,set,kase,num;
-  pre();
-  scanf(&quot;%d&quot;,&amp;kase);
+  int kase;
+  cin &gt;&gt; kase;
   while(kase--)
   {
-    scanf(&quot;%d%d&quot;,&amp;set,&amp;num);
-    printf(&quot;%d %I64d\n&quot;,set,dp[num]);
+    Mar a,b;
+    for(int i=0;i&lt;N;i++)  cin &gt;&gt; a.mat[i];
+    int c = Contor(a);
+    cout &lt;&lt; &quot;The Cantor is &quot; &lt;&lt; endl;
+    cout &lt;&lt; c &lt;&lt; endl;;
+    b = deContor(c);
+    cout &lt;&lt; &quot;The deCantor is&quot; &lt;&lt; endl;
+    for(int i=0;i&lt;N;i++)  cout &lt;&lt; b.mat[i] &lt;&lt; &#39; &#39;;
+    cout &lt;&lt; endl;
   }
 }
 </code></pre>
+<p><a href="https://blog.csdn.net/wbin233/article/details/72998375" target="_blank" rel="external">参考文档</a></p>
 
         
     
@@ -590,21 +641,13 @@ int main()
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2018/04/12/33/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2018/04/12/31/" id="post_nav-older" class="next-content">
+        <a href="/2018/04/12/39/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
