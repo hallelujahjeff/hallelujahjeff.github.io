@@ -237,7 +237,7 @@
 
     
         <meta property="article:published_time" content="Sun Apr 29 2018 22:00:53 GMT+0800" />
-        <meta property="article:modified_time" content="Sun Apr 29 2018 23:28:18 GMT+0800" />
+        <meta property="article:modified_time" content="Sun Apr 29 2018 23:38:35 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -264,7 +264,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/04/29/45/index.html",
     "headline": "搜索入门——DFS与BFS",
     "datePublished": "Sun Apr 29 2018 22:00:53 GMT+0800",
-    "dateModified": "Sun Apr 29 2018 23:28:18 GMT+0800",
+    "dateModified": "Sun Apr 29 2018 23:38:35 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Mogician_Jeff",
@@ -500,7 +500,7 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <script src="\assets\js\APlayer.min.js"> </script><h1 id="搜索入门——DFS与BFS"><a href="#搜索入门——DFS与BFS" class="headerlink" title="搜索入门——DFS与BFS"></a>搜索入门——DFS与BFS</h1><p>MOOC后台第一次算法授课</p>
-<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=689636&auto=1&height=32"></iframe></p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=445534&auto=1&height=32"></iframe></p>
 <h2 id="0-写在前面"><a href="#0-写在前面" class="headerlink" title="0. 写在前面"></a>0. 写在前面</h2><hr>
 <p>部长竟然要求每个人都要抖点料出来…我明明啥都不会还非要写点什么。本来想写点关于STL的知识的，考虑到社团里好多人都不接触C++,而Java里好用的类比STL多太多了，作罢。算法也不会那么几个，姑且只能非常非常浅显地讲一下搜索的方法吧…<br>本文会把重心放在让你们明白搜索是个啥玩意儿，并不要求你们人人都会写(其实我也不怎么会写)…只能说，搜索是一种思想，而不是死的方法。接触多了你们会发现，万物皆可搜索(呸<br>这篇文章就浅显提了下DFS和单向BFS两种最基础的搜索算法…其实还有一些比如A*或者双向BFS之类的高端操作，但是我也不会(摊手)</p>
 <h2 id="1-何为搜索"><a href="#1-何为搜索" class="headerlink" title="1. 何为搜索"></a>1. 何为搜索</h2><hr>
@@ -652,7 +652,8 @@ void dfs(int y, int x, int time)
                 vis[ny][nx] = 1;
                 dfs(ny, nx, time - 1);
                 vis[ny][nx] = 0;
-                /*注意，这里是要还原访问标记的。因为后续的路径有可能走到之前搜过的格子之上，所以我们在递归完成后要把这个格子置0，以免影响到后续的搜索*/
+                /*注意，这里是要还原访问标记的。因为后续的路径有可能走到之前搜过的格子之上，所以我们在递归完成后
+        要把这个格子置0，以免影响到后续的搜索*/
             }
         }
     }
@@ -708,7 +709,7 @@ int main()
 <p>挑了几道基础的题，当然你们可以不做。<br><a href="https://www.luogu.org/problemnew/show/P1135" target="_blank" rel="external">洛谷P1135</a><br><a href="https://www.luogu.org/problemnew/show/P1657" target="_blank" rel="external">洛谷P1657</a><br><a href="https://www.luogu.org/problemnew/show/P1036" target="_blank" rel="external">洛谷P1036</a><br><a href="https://www.luogu.org/problemnew/show/P1164" target="_blank" rel="external">洛谷P1164</a><br><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1010" target="_blank" rel="external">HDOJ1010</a><br><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1181" target="_blank" rel="external">HDOJ1181</a></p>
 <h2 id="3-BFS——广度优先搜索"><a href="#3-BFS——广度优先搜索" class="headerlink" title="3.BFS——广度优先搜索"></a>3.BFS——广度优先搜索</h2><h3 id="3-1-和深搜的区别"><a href="#3-1-和深搜的区别" class="headerlink" title="3.1 和深搜的区别"></a>3.1 和深搜的区别</h3><hr>
 <p>广度优先搜索较之深度优先搜索之不同在于，深度优先搜索旨在不管有多少条岔路，先一条路走到底，不成功就返回上一个路口然后就选择下一条岔路，而广度优先搜索旨在面临一个路口时，把所有的岔路口都记下来，然后选择其中一个进入，然后将它的分路情况记录下来，然后再返回来进入另外一个岔路，并重复这样的操作。</p>
-<p>还有一个区别是，BFS一般靠循环来完成，DFS一般靠递归(虽然也有栈实现DFS的方式，但是不太直观)<br>所以维护BFS中待查找的节点，需要用到队列。队列是一种先进后出的数据结构，在C++中可以靠STL轻松实现，请大家不要害怕。具体可以看我博客另一篇文章，也可以自己网上学习。</p>
+<p>还有一个区别是，BFS一般靠循环来完成，DFS一般靠递归(虽然也有栈实现DFS的方式，但是不太直观)<br>所以维护BFS中待查找的节点，需要用到队列。队列是一种先进后出的数据结构，在C++中可以靠STL轻松实现，请大家不要害怕。具体可以看我博客另一篇文章<a href="http://mogician.xyz/2018/04/12/37/" target="_blank" rel="external">STL——队列</a>,也可以自己网上学习。</p>
 <h3 id="3-2-算法实现"><a href="#3-2-算法实现" class="headerlink" title="3.2 算法实现"></a>3.2 算法实现</h3><hr>
 <p>同样，我们先来举个例子，生动形象地描述一下BFS的过程。<br>地图如下图所示，求小人到终点的最短距离。<br><img src="/2018/04/29/45/9.png" alt="9.png" title=""><br>如果是DFS，那么我们就要枚举所有路径，然后选择一条路程最短的。这样有可能我们会花费大量时间在一些没用的死路里转来转去。<br>广搜的思路是，我们先把小人所处位置所有可行的方向都找出来，压入一个队列中，表示这些格子都是待搜索的。首先我们会把小人右边和左边两个格子标记为”1”，说明从小人从起点到这两个格子最少需要走1步。<br><img src="/2018/04/29/45/10.png" alt="10.png" title=""><br>之后，我们从两个标记1的位置起，寻找可以到达的下一个位置，标记为”2”，说明小人从起点到这两个格子最少需要走2步。<br><img src="/2018/04/29/45/11.png" alt="11.png" title=""><br>重复上面的步骤，从标记为2的位置起，寻找可到达的下一位置，标记为”3”<br><img src="/2018/04/29/45/12.png" alt="12.png" title=""><br>以此类推，直到某一个标记标记到了终点上<br><img src="/2018/04/29/45/13.png" alt="13.png" title=""></p>
 <p>那么答案就是标记在终点上的数字:10次<br>这个答案可以确保是最短路径，因为在广度优先搜索中，要发现与起点距离为k+1的顶点，首先要发现所有距离为k的顶点，因此可以依次求出从起点到终点的最短距离。</p>
