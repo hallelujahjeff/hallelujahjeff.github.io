@@ -237,7 +237,7 @@
 
     
         <meta property="article:published_time" content="Sun Apr 29 2018 22:00:53 GMT+0800" />
-        <meta property="article:modified_time" content="Sun Apr 29 2018 23:42:37 GMT+0800" />
+        <meta property="article:modified_time" content="Sun Apr 29 2018 23:48:26 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -264,7 +264,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/04/29/45/index.html",
     "headline": "搜索入门——DFS与BFS",
     "datePublished": "Sun Apr 29 2018 22:00:53 GMT+0800",
-    "dateModified": "Sun Apr 29 2018 23:42:37 GMT+0800",
+    "dateModified": "Sun Apr 29 2018 23:48:26 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Mogician_Jeff",
@@ -609,7 +609,7 @@ int main()
 <h3 id="2-3-强力优化"><a href="#2-3-强力优化" class="headerlink" title="2.3 强力优化"></a>2.3 强力优化</h3><p>靠纯粹的枚举所有情况来得出结论显然费时费力，实际上搜索是有非常大的优化空间的。这里详细讲一下剪枝优化，顺便提一下记忆化的优化方法。</p>
 <h4 id="2-3-1-DFS优化之剪枝-重要"><a href="#2-3-1-DFS优化之剪枝-重要" class="headerlink" title="2.3.1 DFS优化之剪枝(重要)"></a>2.3.1 DFS优化之剪枝(重要)</h4><p>剪枝就是把一些显然不可能的情况排除掉，只搜索合理的方案。<br>我们来看一下这一道题</p>
 <p>Σ(っ °Д °;)っ<a href="http://acm.hdu.edu.cn/showproblem.php?pid=1010" target="_blank" rel="external">HDOJ1010</a></p>
-<p>简单来说就是给出一张n<em>m的地图，有一条小狗要从起点前往终点。每走一个格子花费1秒，求是否存在一条路径，使得从起点到达终点消耗的时间正好为t秒。<br>和之前举的例子相比，这道题就多了一个限制条件:<em>*必须恰好在t秒到达终点</em></em><br>枚举所有情况当然可行，但是效率过于低下，绝对会超时。所以这里就要用到剪枝的技巧了。</p>
+<p>简单来说就是给出一张<code>n * m</code>大小的地图，有一条小狗要从起点前往终点。每走一个格子花费1秒，求是否存在一条路径，使得从起点到达终点消耗的时间正好为t秒。<br>和之前举的例子相比，这道题就多了一个限制条件:<strong>必须恰好在t秒到达终点</strong><br>枚举所有情况当然可行，但是效率过于低下，绝对会超时。所以这里就要用到剪枝的技巧了。</p>
 <p><strong>剪枝1：距离剪枝</strong><br>如果当前位置与终点之间的欧几里得距离(就是两点水平距离和竖直距离之和)大于规定时间t的话，那么在t秒内无论怎么走都是无法到达终点的。这个时候我们应该及时返回，不再递归下去。</p>
 <p><strong>剪枝2：奇偶剪枝</strong><br>如果当前位置和终点之间的欧几里得距离与时间t之和为奇数，同样无论如何都无法在t秒时到达终点。这个应该可以通过数学归纳法证明，最极端的情况是当前位置贴着终点的时候，显然无法在偶数秒内到达终点。<br>具体证明可以看这里Σ(っ °Д °;)っ<a href="https://baike.baidu.com/item/%E5%A5%87%E5%81%B6%E5%89%AA%E6%9E%9D/10385689" target="_blank" rel="external">奇偶剪枝</a><br>奇偶剪枝和距离剪枝不一样，它可以在DFS外面进行判断。因为我们发现当小狗移动一个单位时，时间也减少了一秒，所以它们的和的奇偶性并不会改变。所以我们在主函数进行奇偶剪枝即可。</p>
 <p>当程序在递归时遇到以上两种情况时，应当及时返回，不再做无用功。这样，程序运行的效率就大大提高了。</p>
