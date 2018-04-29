@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html style="display: none;" >
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            搜索入门——DFS与BFS | 
+        
+        隙间
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Mogician_Jeff">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="隙间">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/233.jpg);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="搜索入门——DFS与BFS | 隙间">
+    <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Sun Apr 29 2018 22:00:53 GMT+0800" />
+        <meta property="article:modified_time" content="Sun Apr 29 2018 23:28:18 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="搜索入门——DFS与BFS | 隙间">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/04/29/45/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/04/29/45/index.html",
+    "headline": "搜索入门——DFS与BFS",
+    "datePublished": "Sun Apr 29 2018 22:00:53 GMT+0800",
+    "dateModified": "Sun Apr 29 2018 23:28:18 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Mogician_Jeff",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/tobyfox.png"
+        },
+        "description": "隙间,    "
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "隙间",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搜索入门——DFS与BFS"><span class="post-toc-number">1.</span> <span class="post-toc-text">搜索入门——DFS与BFS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0-写在前面"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">0. 写在前面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-何为搜索"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1. 何为搜索</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-一个简单的问题"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1.1 一个简单的问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2搜索的应用"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">1.2搜索的应用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-DFS——深度优先搜索"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">2.DFS——深度优先搜索</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1介绍一下全称吧"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">2.1介绍一下全称吧</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-算法实现"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">2.2 算法实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-强力优化"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">2.3 强力优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-3-1-DFS优化之剪枝-重要"><span class="post-toc-number">1.3.3.1.</span> <span class="post-toc-text">2.3.1 DFS优化之剪枝(重要)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-3-2-DFS优化之记忆化"><span class="post-toc-number">1.3.3.2.</span> <span class="post-toc-text">2.3.2 DFS优化之记忆化</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-例题"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">2.4 例题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-BFS——广度优先搜索"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">3.BFS——广度优先搜索</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-和深搜的区别"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">3.1 和深搜的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-算法实现"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">3.2 算法实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-BFS的限制"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">3.3 BFS的限制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-4-例题"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">3.4 例题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-写在结尾"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">4.写在结尾</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/images/45.jpg)">
+    
+            <p class="article-headline-p">
+                搜索入门——DFS与BFS
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/tobyfox.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Mogician_Jeff</strong>
+        <span>Apr 29, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/04/29/45/" class="leancloud-views_num" data-flag-title="搜索入门——DFS与BFS">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=搜索入门——DFS与BFS&url=http://yoursite.com/2018/04/29/45/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=搜索入门——DFS与BFS&url=http://yoursite.com/2018/04/29/45/index.html&via=Mogician_Jeff" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/29/45/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/29/45/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=隙间&title=搜索入门——DFS与BFS&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/04/29/45/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="搜索入门——DFS与BFS"><a href="#搜索入门——DFS与BFS" class="headerlink" title="搜索入门——DFS与BFS"></a>搜索入门——DFS与BFS</h1><p>MOOC后台第一次算法授课</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=689636&auto=1&height=32"></iframe></p>
+<h2 id="0-写在前面"><a href="#0-写在前面" class="headerlink" title="0. 写在前面"></a>0. 写在前面</h2><hr>
+<p>部长竟然要求每个人都要抖点料出来…我明明啥都不会还非要写点什么。本来想写点关于STL的知识的，考虑到社团里好多人都不接触C++,而Java里好用的类比STL多太多了，作罢。算法也不会那么几个，姑且只能非常非常浅显地讲一下搜索的方法吧…<br>本文会把重心放在让你们明白搜索是个啥玩意儿，并不要求你们人人都会写(其实我也不怎么会写)…只能说，搜索是一种思想，而不是死的方法。接触多了你们会发现，万物皆可搜索(呸<br>这篇文章就浅显提了下DFS和单向BFS两种最基础的搜索算法…其实还有一些比如A*或者双向BFS之类的高端操作，但是我也不会(摊手)</p>
+<h2 id="1-何为搜索"><a href="#1-何为搜索" class="headerlink" title="1. 何为搜索"></a>1. 何为搜索</h2><hr>
+<h3 id="1-1-一个简单的问题"><a href="#1-1-一个简单的问题" class="headerlink" title="1.1 一个简单的问题"></a>1.1 一个简单的问题</h3><p> 先举个例子，现在给你一张迷宫，用坐标标记出了你的位置，终点的位置，墙的位置和路的位置，要求设计一个程序，解决以下三个问题</p>
+<img src="/2018/04/29/45/1.png" alt="1.png" title="">
+<p><strong>1.从起点出发能否到达终点</strong><br><strong>2.在有限时间内，能否从出发点到达终点</strong><br><strong>3.若能从起点出发到达终点，求出从起点到终点的最短路径的路程</strong></p>
+<p>…</p>
+<p>如果你不会搜索，你会发现这类问题根本无从下手，即使你看一眼就明白答案是什么。<br>想想你是怎么通过”看”这个玄学操作得出答案的？实际上是你的大脑通过高速处理后，了解了在这个迷宫里，哪些路是死路，哪些路是通往终点的路，哪些路是相对比较近的路。所谓搜索，实际上就是让计算机模拟人脑的这个过程，但是计算机不知道从何开始看起，所以你需要帮助它制定一套搜索规则。如同网络爬虫一样，只要有一套搜索规则，就可以自主地在迷宫中进行探寻，把所有死路、可行路都找出来。</p>
+<p><strong>搜索算法的本质是一种暴力算法，它尽可能穷举一个问题的所有可能性，从而得到结论。</strong><br>而你要做的，就是制定一套搜索规则，帮助计算机实现搜索这个过程。<br>在算法道路上，搜索是最基础、最容易掌握而又对你解决一系列问题有重大推动力的算法，所以请务必掌握。</p>
+<h3 id="1-2搜索的应用"><a href="#1-2搜索的应用" class="headerlink" title="1.2搜索的应用"></a>1.2搜索的应用</h3><p>前面之所以举迷宫的例子，是因为这类问题比较生动形象，容易讲，其实只是搜索的一个很浅显的应用…搜索广泛应用在数据结构之中，比如树和图的很多问题都要用到搜索。也许这篇文章对你理解搜索一点用都没有，但是我还是想告诉你:<strong>搜索很有用</strong></p>
+<h2 id="2-DFS——深度优先搜索"><a href="#2-DFS——深度优先搜索" class="headerlink" title="2.DFS——深度优先搜索"></a>2.DFS——深度优先搜索</h2><hr>
+<h3 id="2-1介绍一下全称吧"><a href="#2-1介绍一下全称吧" class="headerlink" title="2.1介绍一下全称吧"></a>2.1介绍一下全称吧</h3><p>DFS全称是Deep First Search，翻译过来叫深度优先搜索。先顺便提一下，BFS的全称是Breath First Search，广度优先搜索。<br>从英文名或者中文名就可以看出两者区别。一个是一心一意，一直深入，直到有了成果或者把自己逼到无路可走。一个是广撒网多捞鱼，这里看看那里看看。<br>那么接下来进入正题。</p>
+<h3 id="2-2-算法实现"><a href="#2-2-算法实现" class="headerlink" title="2.2 算法实现"></a>2.2 算法实现</h3><p>一般的DFS，我们用函数递归的方式实现。深度优先的原则是:只要还有路可以走，就一路走到底，直到无路可走再回溯上来。<br>拿之前的迷宫举例子。<br><img src="/2018/04/29/45/2.png" alt="2.png" title=""><br>我们用二维数组记录地图数据，另外开一个数组记录地图的访问情况。<br>开一个dir数组，用来规定搜索的规则，这里以上左下右为顺序。</p>
+<pre><code class="cpp">int mp[maxn][maxn];  //记录地图
+int vis[maxn][maxn]; //记录地图的访问情况
+dir[4][2] = {{-1,0},{0,-1},{1,0},{0,1}} // 这是上左下右的顺序
+
+//地图可以向下面一样存，当然符号可以自己定
+//* S * * * * * * * * * * *
+//* . . . . . . . . . . . *
+//* . * . . . . . . . . . *
+//* . * . . . . . . . . . *
+//* . * . . . . . . . . . *
+//* . * . . . . . . . . E *
+//* * * * * * * * * * * * *
+</code></pre>
+<p>用深度优先的顺序，小人会从起点S位置依次遍历上、左、下、右四个方向，一旦某个方向有路可走，就递归下去，同时做一个访问标记，说明这个格子已经走过了，之后不用再走回头路了。若无路可走了，函数会自动回溯到上一个状态，继续搜寻其他的路线。</p>
+<p>按照上图的结构，小人会优先一直往下走<br><img src="/2018/04/29/45/3.png" alt="3.png" title=""><br>到达最下方时，判断上下左右都无路可走(上面的路由于已经被标记过了，不能再走)回溯到上移状态。<br><img src="/2018/04/29/45/4.png" alt="4.png" title=""></p>
+<p>回溯</p>
+<img src="/2018/04/29/45/5.png" alt="5.png" title="">
+<p>回溯完发现依然可走，所以继续回溯，直到有路为止。</p>
+<img src="/2018/04/29/45/6.png" alt="6.png" title="">
+<p>之后小人只能往右走，然后再往下走。<br><img src="/2018/04/29/45/7.png" alt="7.png" title=""><br>找到终点后，函数返回。</p>
+<p>下面给出代码的形式</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+using namespace std;
+const int maxn = 128; //地图的最大范围
+char mp[maxn][maxn], vis[maxn][maxn];
+int dir[4][2] = { {-1,0},{0,-1},{1,0},{0,1} };
+int n,m;  //地图规模为n * m
+int sx, sy, ex, ey; //记录起点和终点的坐标
+bool flag = false; //是否找到终点的标志
+void dfs(int x, int y)
+{
+    if (x == ex AND y == ey)    //到达终点
+    {
+        flag = true;
+        return;
+    }
+    if (flag == false)  //如果还没有找到终点，那就要继续递归下去找
+    {
+        for (int i = 0; i &lt; 4; i++)
+        {
+            // 下一坐标的位置
+            int next_x = x + dir[i][0];  
+            int next_y = y + dir[i][1];
+            if (next_x &lt; 1 || next_x &gt; n || next_y &lt; 1 || next_y &gt; m || vis[next_x][next_y] == 1)
+                continue;  //如果下一坐标越界或者下一坐标已经访问过
+            if (mp[next_x][next_y] == &#39;.&#39;)
+            {
+                vis[next_x][next_y] = 1;
+                dfs(next_x, next_y);
+                // vis[next_x][next_y] = 0;  标记的还原，某些情况下必须有，这里不需要
+            }
+        }
+    }
+}
+int main()
+{
+    int sx, sy;  //记录起点坐标
+    cin &gt;&gt; n &gt;&gt; m;
+
+    /*读入地图数据*/
+    for (int i = 1; i &lt;= n; i++)
+    for (int j = 1; j &lt;= m; j++)
+    {
+        cin &gt;&gt; mp[i][j];
+        if (mp[i][j] == &#39;S&#39;)
+        {
+            sx = i;
+            sy = j;
+            mp[i][j] = &#39;.&#39;;
+        }
+        if (mp[i][j] == &#39;E&#39;)
+        {
+            ex = i;
+            ey = j;
+            mp[i][j] = &#39;.&#39;;
+        }
+    }
+    memset(vis, 0, sizeof(vis)); // 初始化
+    flag = false;
+    dfs(sx, sy);
+    if (flag == true)
+        cout &lt;&lt; &quot;从起点可以到达终点&quot; &lt;&lt; endl;
+    else
+        cout &lt;&lt; &quot;从起点无法到达终点&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<img src="/2018/04/29/45/8.png" alt="8.png" title="">
+<p>不要拘束于代码，搜索是一种思想，这只是我的代码风格…不要照抄我的，要自己去理解那个函数递归和回溯的过程。</p>
+<p>这里还有几个细节问题。</p>
+<ol>
+<li><p>如果要求输出路径怎么办？<br>很简单，开一个记录路径的数组，在函数递归的时候把这个数组也向下传递，到达终点时将这个数组输出。</p>
+</li>
+<li><p>什么时候要还原访问标记？<br>在上面的问题中，对于一个格子你只要搜索过一次，之后就不会再来了，因为你已经知道从这个格子无法到达终点。所以这种情况是不需要还原访问标记的。如果问题是输出一条最短的路径，或者是要求输出所有可行路径，那么对于之前已经搜索过的格子，下一条路径可能会再次访问，所以在回溯之后一定要将访问标记置0。</p>
+</li>
+</ol>
+<h3 id="2-3-强力优化"><a href="#2-3-强力优化" class="headerlink" title="2.3 强力优化"></a>2.3 强力优化</h3><p>靠纯粹的枚举所有情况来得出结论显然费时费力，实际上搜索是有非常大的优化空间的。这里详细讲一下剪枝优化，顺便提一下记忆化的优化方法。</p>
+<h4 id="2-3-1-DFS优化之剪枝-重要"><a href="#2-3-1-DFS优化之剪枝-重要" class="headerlink" title="2.3.1 DFS优化之剪枝(重要)"></a>2.3.1 DFS优化之剪枝(重要)</h4><p>剪枝就是把一些显然不可能的情况排除掉，只搜索合理的方案。<br>我们来看一下这一道题</p>
+<p>Σ(っ °Д °;)っ<a href="http://acm.hdu.edu.cn/showproblem.php?pid=1010" target="_blank" rel="external">HDOJ1010</a></p>
+<p>简单来说就是给出一张n<em>m的地图，有一条小狗要从起点前往终点。每走一个格子花费1秒，求是否存在一条路径，使得从起点到达终点消耗的时间正好为t秒。<br>和之前举的例子相比，这道题就多了一个限制条件:<em>*必须恰好在t秒到达终点</em></em><br>枚举所有情况当然可行，但是效率过于低下，绝对会超时。所以这里就要用到剪枝的技巧了。</p>
+<p><strong>剪枝1：距离剪枝</strong><br>如果当前位置与终点之间的欧几里得距离(就是两点水平距离和竖直距离之和)大于规定时间t的话，那么在t秒内无论怎么走都是无法到达终点的。这个时候我们应该及时返回，不再递归下去。</p>
+<p><strong>剪枝2：奇偶剪枝</strong><br>如果当前位置和终点之间的欧几里得距离与时间t之和为奇数，同样无论如何都无法在t秒时到达终点。这个应该可以通过数学归纳法证明，最极端的情况是当前位置贴着终点的时候，显然无法在偶数秒内到达终点。<br>具体证明可以看这里Σ(っ °Д °;)っ<a href="https://baike.baidu.com/item/%E5%A5%87%E5%81%B6%E5%89%AA%E6%9E%9D/10385689" target="_blank" rel="external">奇偶剪枝</a><br>奇偶剪枝和距离剪枝不一样，它可以在DFS外面进行判断。因为我们发现当小狗移动一个单位时，时间也减少了一秒，所以它们的和的奇偶性并不会改变。所以我们在主函数进行奇偶剪枝即可。</p>
+<p>当程序在递归时遇到以上两种情况时，应当及时返回，不再做无用功。这样，程序运行的效率就大大提高了。</p>
+<p>参考代码如下</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt;
+#include&lt;cmath&gt;
+using namespace std;
+const int maxn = 10;
+int n, m,t;
+int sx, sy, ex, ey;
+int mp[maxn][maxn], vis[maxn][maxn];
+int dir[4][2] = { {-1,0},{0,-1},{1,0},{0,1} };
+bool flag;
+int get_dis(int y, int x, int ny, int nx) { return abs(y - ny) + abs(x - nx); }  //返回两点的欧几里得距离
+
+void dfs(int y, int x, int time)
+{
+    if (y == ey AND x == ex AND time == 0)
+    {
+        flag = true;
+        return;
+    }
+    if (time &lt; get_dis(y, x, ey, ex))    return;  //距离剪枝
+    if (flag == false)
+    {
+        for (int i = 0; i &lt; 4; i++)
+        {
+            int ny = y + dir[i][0];
+            int nx = x + dir[i][1];
+            if (ny &lt; 1 || ny &gt; n || nx &lt; 1 || nx &gt; m || vis[ny][nx])    continue;
+            if (!mp[ny][nx])
+            {
+                vis[ny][nx] = 1;
+                dfs(ny, nx, time - 1);
+                vis[ny][nx] = 0;
+                /*注意，这里是要还原访问标记的。因为后续的路径有可能走到之前搜过的格子之上，所以我们在递归完成后要把这个格子置0，以免影响到后续的搜索*/
+            }
+        }
+    }
+}
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+    char c;
+    while (cin &gt;&gt; n &gt;&gt; m &gt;&gt; t AND (n AND m AND t))
+    {
+        memset(mp, 0, sizeof(mp));
+        memset(vis, 0, sizeof(vis));
+        flag = false;
+        for (int i = 1; i &lt;= n; i++)
+        {
+            for (int j = 1; j &lt;= m; j++)
+            {
+                cin &gt;&gt; c;
+                if (c == &#39;S&#39;)
+                {
+                    sy = i;
+                    sx = j;
+                }
+                if (c == &#39;D&#39;)
+                {
+                    ey = i;
+                    ex = j;
+                }
+                if (c == &#39;X&#39;)
+                {
+                    mp[i][j] = 1;
+                }
+            }
+        }
+        int dis = get_dis(sy, sx, ey, ex);
+        if (t &lt; dis || (t - dis) &amp; 1)  //奇偶剪枝 &amp; 距离剪枝
+        {
+            cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
+            continue;
+        }
+        vis[sy][sx] = 1;
+        dfs(sy, sx, t);
+        if (flag == true)        cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl;
+        else cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<h4 id="2-3-2-DFS优化之记忆化"><a href="#2-3-2-DFS优化之记忆化" class="headerlink" title="2.3.2 DFS优化之记忆化"></a>2.3.2 DFS优化之记忆化</h4><p>记忆化的核心思想就是把每次递归搜索时得到的答案记下来，本质上是一种动态规划的思想。具体实现，就是开一个数组记录当前节点搜索完成后的答案。当搜索到某个节点时，如果这个节点在之前已经被搜索过了，那么我们就可以直接获得这个答案并返回。如果这个节点没有被搜索过，那我们就从这个节点开始继续往下搜索。<br>具体的实现对于各种问题是不一样的，感兴趣的同学可以做一下这题，试试暴力DFS能过不，然后欢迎和我深入♂交流。<br>Σ(っ °Д °;)っ<a href="http://acm.hdu.edu.cn/showproblem.php?pid=1078" target="_blank" rel="external">HDOJ1078</a></p>
+<h3 id="2-4-例题"><a href="#2-4-例题" class="headerlink" title="2.4 例题"></a>2.4 例题</h3><hr>
+<p>挑了几道基础的题，当然你们可以不做。<br><a href="https://www.luogu.org/problemnew/show/P1135" target="_blank" rel="external">洛谷P1135</a><br><a href="https://www.luogu.org/problemnew/show/P1657" target="_blank" rel="external">洛谷P1657</a><br><a href="https://www.luogu.org/problemnew/show/P1036" target="_blank" rel="external">洛谷P1036</a><br><a href="https://www.luogu.org/problemnew/show/P1164" target="_blank" rel="external">洛谷P1164</a><br><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1010" target="_blank" rel="external">HDOJ1010</a><br><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1181" target="_blank" rel="external">HDOJ1181</a></p>
+<h2 id="3-BFS——广度优先搜索"><a href="#3-BFS——广度优先搜索" class="headerlink" title="3.BFS——广度优先搜索"></a>3.BFS——广度优先搜索</h2><h3 id="3-1-和深搜的区别"><a href="#3-1-和深搜的区别" class="headerlink" title="3.1 和深搜的区别"></a>3.1 和深搜的区别</h3><hr>
+<p>广度优先搜索较之深度优先搜索之不同在于，深度优先搜索旨在不管有多少条岔路，先一条路走到底，不成功就返回上一个路口然后就选择下一条岔路，而广度优先搜索旨在面临一个路口时，把所有的岔路口都记下来，然后选择其中一个进入，然后将它的分路情况记录下来，然后再返回来进入另外一个岔路，并重复这样的操作。</p>
+<p>还有一个区别是，BFS一般靠循环来完成，DFS一般靠递归(虽然也有栈实现DFS的方式，但是不太直观)<br>所以维护BFS中待查找的节点，需要用到队列。队列是一种先进后出的数据结构，在C++中可以靠STL轻松实现，请大家不要害怕。具体可以看我博客另一篇文章，也可以自己网上学习。</p>
+<h3 id="3-2-算法实现"><a href="#3-2-算法实现" class="headerlink" title="3.2 算法实现"></a>3.2 算法实现</h3><hr>
+<p>同样，我们先来举个例子，生动形象地描述一下BFS的过程。<br>地图如下图所示，求小人到终点的最短距离。<br><img src="/2018/04/29/45/9.png" alt="9.png" title=""><br>如果是DFS，那么我们就要枚举所有路径，然后选择一条路程最短的。这样有可能我们会花费大量时间在一些没用的死路里转来转去。<br>广搜的思路是，我们先把小人所处位置所有可行的方向都找出来，压入一个队列中，表示这些格子都是待搜索的。首先我们会把小人右边和左边两个格子标记为”1”，说明从小人从起点到这两个格子最少需要走1步。<br><img src="/2018/04/29/45/10.png" alt="10.png" title=""><br>之后，我们从两个标记1的位置起，寻找可以到达的下一个位置，标记为”2”，说明小人从起点到这两个格子最少需要走2步。<br><img src="/2018/04/29/45/11.png" alt="11.png" title=""><br>重复上面的步骤，从标记为2的位置起，寻找可到达的下一位置，标记为”3”<br><img src="/2018/04/29/45/12.png" alt="12.png" title=""><br>以此类推，直到某一个标记标记到了终点上<br><img src="/2018/04/29/45/13.png" alt="13.png" title=""></p>
+<p>那么答案就是标记在终点上的数字:10次<br>这个答案可以确保是最短路径，因为在广度优先搜索中，要发现与起点距离为k+1的顶点，首先要发现所有距离为k的顶点，因此可以依次求出从起点到终点的最短距离。</p>
+<p>下面给出代码实现的方式,首先是定义</p>
+<pre><code class="cpp">struct Node
+{
+    int y,x; //记录待查找节点的坐标
+}
+queue&lt;Node&gt; q; //定义队列，用于存储待查找的节点
+int mp[maxn][maxn];  //存储地图
+int cnt[maxn][maxn]; //记录节点的标记，默认是-1
+</code></pre>
+<p>其实我们可以把标记距离的工作放到结构体里面。对于不同的问题，Node结构体里面存的数据可以是不一样的，并不一定只有坐标(比如某些题中，还对方向有要求，那么就在结构体中开个记录方向的变量)</p>
+<p>下面给出求最短路径的完整代码</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt;
+using namespace std;
+const int maxn = 128;
+struct Node
+{
+    int y, x;
+};
+int n, m;
+int sx, sy, ex, ey;
+int cnt[maxn][maxn];
+int dir[4][2] = { {-1,0},{0,-1},{1,0},{0,1} };
+char mp[maxn][maxn];
+void bfs()
+{
+    queue&lt;Node&gt; q;
+    Node start = { sy,sx };  //先将起点坐标入队
+    cnt[sy][sx] = 0;
+    q.push(start);
+    while (!q.empty())  //队列非空，说明还有待搜索的节点需要搜索
+    {
+        Node f = q.front(); q.pop();  //取出队首节点
+        if (f.y == ey AND f.x == ex)    break;  //如果搜到终点了，退出循环
+        for (int i = 0; i &lt; 4; i++)   //遍历当前节点的四个方向
+        {
+            int ny = f.y + dir[i][0];
+            int nx = f.x + dir[i][1];
+            if (ny &lt; 1 || ny &gt; n || nx &lt; 1 || nx &gt; m || cnt[ny][nx] != -1)    continue;
+            if (mp[ny][nx] != &#39;*&#39;)  //下一位置可走
+            {
+                cnt[ny][nx] = cnt[f.y][f.x] + 1;  //下一个位置的距离为当前位置距离+1
+                Node next = { ny,nx };
+                q.push(next);  //将next入队
+            }
+        }
+    }
+}
+
+int main()
+{
+    while (cin &gt;&gt; n &gt;&gt; m)
+    {
+        memset(cnt, -1, sizeof(cnt));  //将cnt数组初始化为-1,代表未访问过
+        for(int i=1;i&lt;=n;i++)
+        for(int j=1;j&lt;=m;j++)
+        {
+            cin &gt;&gt; mp[i][j];
+            if (mp[i][j] == &#39;S&#39;)
+            {
+                sy = i;
+                sx = j;
+            }
+            if (mp[i][j] == &#39;E&#39;)
+            {
+                ey = i;
+                ex = j;
+            }
+        }
+        bfs();
+        cout &lt;&lt; cnt[ey][ex] &lt;&lt; endl;
+    }
+}
+</code></pre>
+<img src="/2018/04/29/45/14.png" alt="14.png" title="">
+<h3 id="3-3-BFS的限制"><a href="#3-3-BFS的限制" class="headerlink" title="3.3 BFS的限制"></a>3.3 BFS的限制</h3><hr>
+<p>讲一个BFS的限制。BFS求最短路是要求每条道路的长度是一样长的，若是要求道路不一样长的地图的最短路，直接上裸BFS会出问题。解决方法是用优先队列代替普通队列，让路短的优先值高，路长的优先级低。这样可以确保访问到终点时，经过的路是最短的。<br>实际上求复杂图的最短路时，我们一般采用Dijkstra或者SPFA来搞，因为BFS属于暴力算法，复杂度是比较高的。</p>
+<h3 id="3-4-例题"><a href="#3-4-例题" class="headerlink" title="3.4 例题"></a>3.4 例题</h3><hr>
+<p>其实BFS做多了会比DFS爽..<br><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1253" target="_blank" rel="external">HDOJ1253</a><br><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1495" target="_blank" rel="external">HDOJ1495</a><br><a href="http://codeforces.com/gym/101502/problem/D" target="_blank" rel="external">CF GYM 101502 D</a></p>
+<h2 id="4-写在结尾"><a href="#4-写在结尾" class="headerlink" title="4.写在结尾"></a>4.写在结尾</h2><p>对于这两个搜索方法，其实我们是可以轻松的看出来，他们有许多差异与许多相同点的。</p>
+<p><strong>1.数据结构上的运用</strong></p>
+<p> DFS用递归的形式，用到了栈结构，先进后出。</p>
+<p> BFS选取状态用队列的形式，先进先出。</p>
+<p><strong>2.复杂度</strong></p>
+<p>   DFS的复杂度与BFS的复杂度大体一致，不同之处在于遍历的方式与对于问题的解决出发点不同，DFS适合目标明确，而BFS适合大范围的寻找。</p>
+<p><strong>3.思想</strong></p>
+<p> 思想上来说这两种方法都是穷竭列举所有的情况。</p>
+<hr>
+<p>本文主要参考了知乎dalao @Godshi 的文章<br><a href="https://zhuanlan.zhihu.com/p/24986203" target="_blank" rel="external">文章链接</a><br>那么这就是本次算法授课，由于本人菜的一笔，只能做点搬运工作。上面写的都是我乱编的，各位不要过于信任我的说法。总之，不要被我繁杂的文风迷惑了，其实DFS和BFS还是很好懂的(°ー°〃)</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+				
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" class="comment"></div>
+<script>
+    window.onload = function() {
+        new Valine({
+            av: AV, // source from av-min.js
+            el: '.comment',
+            app_id: "kEcKvAWHQIGpPYo7wYBIg0VD-gzGzoHsz",
+            app_key: "RHNmODu3UwLRE4wt8EqSjJA7",
+            placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+        });
+    }
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/04/23/44/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+
+        </div>
+		
+    </div>
+
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.jpg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/tobyfox.png" alt="Mogician_Jeff's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        949233145@qq.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: 949233145@qq.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/04/">April 2018<span class="sidebar_archives-count">46</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">December 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">November 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">October 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">April 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/比赛/">-比赛<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Codeforces/">Codeforces<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/HDOJ/">HDOJ<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/PAT/">PAT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/POJ/">POJ<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/STL/">STL<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/ZOJ/">ZOJ<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/基础/">基础<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/授课/">授课<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/日记/">日记<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/比赛/">比赛<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/">算法<span class="sidebar_archives-count">26</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/BFS-DFS/">BFS/DFS<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/动态规划/">动态规划<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/博弈论/">博弈论<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/图论/">图论<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数据结构/">数据结构<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数据结构/图/">图<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数据结构/树/">树<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/数论/">数论<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/贪心/">贪心<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/2017/04/13/about/" title="关于我..">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于我..
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">link</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">52</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/hallelujahjeff" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/jeffawesome" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-zhihu">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+        <a href="https://space.bilibili.com/352813/#/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-bilibili">
+                <span class="visuallyhidden">Bilibili</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>隙间
+            
+                <br>
+                
+                    Do not go gentle into that good night.
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('6KAk7q0w2DQIkc9wYGl77FzS-gzGzoHsz', 'wXlogJ3yrRmQ1xqC0DPjusYA');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <head>
+    ...
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    ...
+</head>
+<body>
+    ...
+    <div id="comment"></div>
+</body>
+<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- <script src="//cdn.jsdelivr.net/npm/valine@1.1.1/dist/Valine.min.js"></script> -->
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
